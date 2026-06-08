@@ -1,0 +1,97 @@
+.kelola-pengguna-page{
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  background:#f8fafc;
+  min-height:100vh;
+}
+
+/* Pembungkus transparan bawah tabel agar pergeseran flexbox seimbang dan smooth */
+.pagination-footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+  padding: 0 4px;
+  animation: fadeInFooter 0.3s ease-in-out;
+}
+
+/* Teks info data di sebelah kiri */
+.pagination-info-text {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  user-select: none;
+}
+
+/* Selector .pagination asli lu, sekarang smooth dikunci ke kanan */
+.pagination{
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap:8px;
+}
+
+/* Selector tombol asli lu dengan transisi hover interaktif yang lembut */
+.pagination button{
+  width:40px;
+  height:40px;
+  border:none;
+  border-radius:10px;
+  background:white;
+  cursor:pointer;
+  border:1px solid #e2e8f0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Efek smooth */
+}
+
+/* Hover effect halus */
+.pagination button:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #1e293b;
+  transform: translateY(-1px); /* Sedikit efek naik pas di-hover */
+}
+
+/* Active state saat tombol ditekan click */
+.pagination button:active:not(:disabled) {
+  transform: translateY(0px);
+}
+
+/* Tombol disabled transparan halus */
+.pagination button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: #f1f5f9;
+}
+
+/* Warna stabilo aktif asli lu tetap dipertahankan dengan border matching */
+.active-page{
+  background:#c7ea46 !important;
+  font-weight:700;
+  color: #000000 !important;
+  border-color: #c7ea46 !important;
+  box-shadow: 0 2px 8px rgba(199, 234, 70, 0.2); /* Efek glow tipis di bawah tombol aktif */
+}
+
+/* Titik-titik separator (...) */
+.pagination-dots {
+  color: #94a3b8;
+  font-weight: 600;
+  padding: 0 4px;
+  font-size: 14px;
+  user-select: none;
+}
+
+/* Animasi pudar halus saat data dimuat ulang */
+@keyframes fadeInFooter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

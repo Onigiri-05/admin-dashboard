@@ -1,0 +1,201 @@
+:root {
+  --sb-bg: #FFFFFF;
+  --sb-text: #64748B;
+  --sb-active: #D4F069;
+  --sb-active-text: #0F172A;
+  --content-bg: #F8FAFC;
+  --card-white: #FFFFFF;
+}
+
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--content-bg);
+  font-family: 'Outfit', sans-serif;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: var(--sb-bg);
+  color: var(--sb-text);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #E2E8F0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.sidebar.closed {
+  margin-left: -280px;
+}
+
+.sidebar-brand {
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar-brand h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge-admin-text {
+  background-color: #D4F069;
+  color: #0F172A;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+.brand-icon {
+  color: #0F172A;
+}
+
+.admin-profile-section {
+  padding: 1rem 1.5rem;
+  background-color: #F8FAFC;
+  margin: 0 1rem 1.5rem 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #E2E8F0;
+}
+
+.admin-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #D4F069;
+  color: #0F172A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.admin-role {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.admin-email {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #94A3B8;
+}
+
+/* KUNCI UTAMA SCROLL SIDEBAR */
+.sidebar-menu-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+}
+
+.sidebar-menu {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: none;
+  border: none;
+  border-radius: 12px;
+  color: var(--sb-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.menu-item:hover {
+  background-color: #F1F5F9;
+  color: #0F172A;
+}
+
+.menu-item.active {
+  background-color: var(--sb-active);
+  color: var(--sb-active-text);
+}
+
+.sidebar-footer {
+  padding: 1.5rem 1rem;
+  border-top: 1px solid #E2E8F0;
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: #FFF5F5;
+  border: 1px solid #FEE2E2;
+  border-radius: 12px;
+  color: #EF4444;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #FEE2E2;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.content-body {
+  padding: 2.5rem;
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .mobile-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 20;
+    background: #0F172A;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 8px;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+  }
+}

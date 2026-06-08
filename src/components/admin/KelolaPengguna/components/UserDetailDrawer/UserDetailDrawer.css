@@ -1,0 +1,357 @@
+/* OVERLAY & LAYOUT UTAMA */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.15); /* Backdrop transparan blur tipis ala gambar */
+  backdrop-filter: blur(2px);
+  z-index: 998;
+}
+
+.user-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 440px !important;
+  height: 100vh !important;
+  background: #ffffff; /* Background putih bersih sesuai gambar */
+  z-index: 99999 !important;
+  overflow-y: auto !important;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.04); /* Shadow super smooth di kiri */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* HEADER */
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.drawer-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #334155;
+}
+
+/* CONTENT CONTAINER */
+.drawer-content {
+  padding: 0 24px 40px 24px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 24px 0 12px 0;
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 12px 0;
+}
+
+.section-header-row .section-title {
+  margin: 0;
+}
+
+.lihat-semua-link {
+  font-size: 12px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* PROFILE SECTION */
+.profile-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.profile-left {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.profile-email {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.profile-uid {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* EXPORT BUTTON */
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: white;
+  color: #dc2626;
+  transition: background 0.2s;
+}
+
+.export-btn:hover {
+  background: #fef2f2;
+}
+
+/* STATS GRID (RINGKASAN) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat-card {
+  background: #f8fafc; /* Card semi-abu super soft */
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Warna icon box dinamis sesuai gambar */
+.stat-icon-wrapper.wallet { background: #e6f4ea; color: #137333; }
+.stat-icon-wrapper.budget { background: #e8f0fe; color: #1a73e8; }
+.stat-icon-wrapper.total-trx { background: #fef7e0; color: #b06000; }
+.stat-icon-wrapper.category { background: #f3e8ff; color: #7c3aed; }
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-card span {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.stat-card strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* TEXT COLOR UTILITY */
+.text-green { color: #16a34a; }
+.text-blue { color: #2563eb; }
+.text-orange { color: #ea580c; }
+.text-purple { color: #7c3aed; }
+.text-red { color: #dc2626; }
+.text-muted { color: #64748b; }
+.font-medium { font-weight: 500; }
+
+/* INFORMASI AKUN LIST */
+.info-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.info-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+}
+
+.info-label span {
+  font-size: 13px;
+}
+
+.info-label svg {
+  color: #94a3b8;
+}
+
+.info-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.status-active-text {
+  color: #16a34a;
+  background: #e6f4ea;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* TRANSAKSI TERAKHIR LIST */
+.transactions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-left-side {
+  display: flex;
+  align-items: center;
+}
+
+.trx-icon-box {
+  margin-right: 14px;
+  display: flex;
+  align-items: center;
+}
+
+/* Warna khusus icon transaksi */
+.trx-icon-food { color: #f59e0b; }
+.trx-icon-transport { color: #3b82f6; }
+.trx-icon-save { color: #10b981; }
+.trx-icon-shop { color: #ec4899; }
+.trx-icon-default { color: #64748b; }
+
+.transaction-date {
+  font-size: 13px;
+  color: #64748b;
+  width: 90px; /* Jarak aman kolom tgl */
+}
+
+.transaction-category-name {
+  font-size: 13px;
+  color: #1e293b;
+  font-weight: 400;
+}
+
+.transaction-amount-side {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* AKTIVITAS TERAKHIR */
+.activity-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.activity-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.status-dot.online {
+  background: #16a34a;
+}
+
+.activity-subtext {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* BADGES CORES */
+.role-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.role-badge.admin {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.role-badge.user {
+  background: #e0f2fe;
+  color: #0369a1;
+}

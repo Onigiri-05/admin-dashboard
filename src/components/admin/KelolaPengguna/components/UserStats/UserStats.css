@@ -1,0 +1,59 @@
+.stats-container-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.stat-card-top {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.01);
+}
+
+.icon-badge-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Kombinasi warna pastel lembut sesuai tema mockup */
+.icon-badge-box.blue { background: #eff6ff; color: #2563eb; }
+.icon-badge-box.orange { background: #fff7ed; color: #ea580c; }
+.icon-badge-box.green { background: #f0fdf4; color: #16a34a; }
+.icon-badge-box.purple { background: #f5f3ff; color: #7c3aed; }
+
+.stat-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-label-top {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.stat-number-top {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+.stat-subtext-top {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 2px;
+}

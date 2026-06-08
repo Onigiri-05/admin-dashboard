@@ -1,0 +1,36 @@
+.user-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.user-header h1{
+  margin:0;
+  font-size:42px;
+  font-weight:800;
+  color:#0f172a;
+}
+
+.user-header p{
+  margin-top:8px;
+  color:#64748b;
+  font-size:14px;
+}
+
+.database-status{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#dcfce7;
+  color:#16a34a;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:600;
+}
+
+.db-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#22c55e;
+}
