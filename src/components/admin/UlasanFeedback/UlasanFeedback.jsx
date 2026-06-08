@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../../firebase';
-import { MessageSquare, Star } from 'lucide-react';
+import { MessageSquare, Star, Trash2 } from 'lucide-react';
 import './UlasanFeedback.css';
 
 const UlasanFeedback = () => {
@@ -9,7 +9,7 @@ const UlasanFeedback = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Menghubungkan langsung ke koleksi 'reviews' sesuai database aslimu
+    // Listener real-time ke koleksi 'reviews' di Firestore
     const unsubscribe = onSnapshot(collection(db, 'reviews'), (snapshot) => {
       const reviewList = [];
       snapshot.forEach((doc) => {
@@ -19,8 +19,10 @@ const UlasanFeedback = () => {
           email: data.email || 'Anonymous',
           comment: data.comment || '',
           rating: data.rating || 0,
-          sprint: data.sprint || 'Umum',
-          createdAt: data.createdAt ? data.createdAt.toDate().toLocaleDateString('id-ID') : 'Tidak ada tanggal'
+          sprint: data.sprint || 'Sprint 1',
+          createdAt: data.createdAt 
+            ? data.createdAt.toDate().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) 
+            : 'Tidak ada tanggal'
         });
       });
       setReviews(reviewList);
@@ -33,37 +35,87 @@ const UlasanFeedback = () => {
     return () => unsubscribe();
   }, []);
 
+  // Fungsi untuk menghapus ulasan dari database
+  const handleDelete = async (id) => {
+    if (window.confirm("Apakah Anda yakin ingin menghapus ulasan ini?")) {
+      try {
+        await deleteDoc(doc(db, 'reviews', id));
+      } catch (error) {
+        console.error("Gagal menghapus dokumen:", error);
+      }
+    }
+  };
+
   return (
-    <div className="uf-wrapper">
-      <div className="uf-header">
-        <h1 className="uf-title">Ulasan & Feedback</h1>
-        <p className="uf-subtitle">Data feedback real-time dari mahasiswa pengguna BudJet</p>
+    <div className="ringkasan-root">
+      {/* HEADER UTAMA */}
+      <div className="ringkasan-header-row">
+        <div>
+          <h1 className="main-title-text">Ulasan & Feedback Aplikasi</h1>
+          <p className="subtitle-text">Panel Kontrol Utama BudJet • Sinkronisasi Database Dua Arah Aktif</p>
+        </div>
+        <div className="database-status-badge">
+          <span className="status-dot-pulse"></span>
+          Database Terhubung
+        </div>
       </div>
 
+      {/* BANNER SUMMARY CONTROLLER */}
+      <div className="feedback-summary-banner">
+        <div className="banner-left">
+          <div className="banner-icon-wrapper">
+            <MessageSquare size={20} className="title-inline-icon-lime" />
+          </div>
+          <span className="banner-title">Feedback Hasil Pengujian Sprint 1 & Sprint 2</span>
+        </div>
+        <div className="banner-badge-count">
+          {reviews.length} TOTAL ULASAN
+        </div>
+      </div>
+
+      {/* GRID DAFTAR KARTU ULASAN */}
       {loading ? (
         <p className="uf-loading">Memuat ulasan dari Firestore...</p>
       ) : reviews.length > 0 ? (
-        <div className="uf-grid">
+        <div className="feedback-cards-grid">
           {reviews.map((rev) => (
-            <div key={rev.id} className="uf-card">
-              <div className="uf-card-top">
-                <span className="uf-user-email">{rev.email}</span>
-                <span className="uf-sprint-badge">{rev.sprint}</span>
-              </div>
+            <div key={rev.id} className="feedback-item-card">
               
-              <div className="uf-stars">
-                {[...Array(5)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    size={16} 
-                    fill={i < rev.rating ? "#F59E0B" : "none"} 
-                    stroke={i < rev.rating ? "#F59E0B" : "#CBD5E1"} 
-                  />
-                ))}
+              {/* Baris Atas: Tag Sprint & Rating Bintang */}
+              <div className="card-top-row">
+                <span className={`sprint-tag ${rev.sprint.toLowerCase().replace(/\s+/g, '-')}`}>
+                  {rev.sprint}
+                </span>
+                <div className="stars-indicator-flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      size={16} 
+                      fill={i < rev.rating ? "#F59E0B" : "none"} 
+                      stroke={i < rev.rating ? "#F59E0B" : "#E2E8F0"} 
+                    />
+                  ))}
+                </div>
               </div>
 
-              <p className="uf-comment">"{rev.comment}"</p>
-              <span className="uf-date">{rev.createdAt}</span>
+              {/* Isi Teks Komentar */}
+              <p className="feedback-body-text">"{rev.comment}"</p>
+              
+              {/* Baris Bawah: Identitas Pengguna & Tombol Aksi */}
+              <div className="card-bottom-row">
+                <div className="user-meta-info">
+                  <span className="user-email-display">{rev.email}</span>
+                  <span className="feedback-timestamp">📅 {rev.createdAt}</span>
+                </div>
+                <button 
+                  className="delete-feedback-btn" 
+                  onClick={() => handleDelete(rev.id)}
+                  title="Hapus Ulasan"
+                >
+                  <Trash2 size={16} />
+                </button>
+              </div>
+
             </div>
           ))}
         </div>
