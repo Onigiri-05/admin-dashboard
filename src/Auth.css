@@ -213,3 +213,45 @@ body {
 .terms-container b {
   font-weight: 800;
 }
+
+@media (max-width: 768px) {
+
+  .auth-container {
+    flex-direction: column;
+  }
+
+  .auth-image-side {
+    display: none;
+  }
+
+  .auth-form-side {
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  .auth-card {
+    max-width: 100%;
+  }
+
+  .auth-title {
+    font-size: 1.8rem;
+  }
+
+  .auth-subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .terms-container {
+    align-items: flex-start;
+  }
+}
