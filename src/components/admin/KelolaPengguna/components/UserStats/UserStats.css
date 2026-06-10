@@ -57,3 +57,18 @@
   color: #94a3b8;
   margin-top: 2px;
 }
+
+@media (max-width: 768px) {
+
+  .stats-container-top {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card-top {
+    width: 100%;
+  }
+
+  .stat-number-top {
+    font-size: 22px;
+  }
+}

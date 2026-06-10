@@ -169,3 +169,30 @@
   border: 1px solid #E5E7EB;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
+
+@media (max-width: 768px) {
+
+  .feedback-summary-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .feedback-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-item-card {
+    padding: 1.25rem;
+  }
+
+  .card-top-row,
+  .card-bottom-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .feedback-body-text {
+    font-size: 0.85rem;
+  }
+}

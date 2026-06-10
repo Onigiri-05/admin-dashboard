@@ -84,3 +84,28 @@
   background-color: #FEE2E2;
   color: #B91C1C;
 }
+
+@media (max-width: 768px) {
+
+  .eksplor-db-container {
+    gap: 1rem;
+  }
+
+  .search-bar-wrapper {
+    max-width: 100%;
+  }
+
+  .db-table {
+    min-width: 700px;
+  }
+
+  .db-table th,
+  .db-table td {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .doc-id-text {
+    font-size: 11px !important;
+  }
+}

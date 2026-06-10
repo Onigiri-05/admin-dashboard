@@ -216,3 +216,25 @@
 .action-btn.unban-active { color: #dc2626; background: #fef2f2; border-color: #fecaca; }
 .action-btn.role-admin-active { color: #e11d48; background: #fff1f2; border-color: #ffe4e6; }
 .action-btn.role-user-active:hover { color: #0369a1; border-color: #bae6fd; }
+
+@media (max-width: 768px) {
+
+  .user-table {
+    min-width: 900px;
+  }
+
+  .user-table th,
+  .user-table td {
+    padding: 12px;
+  }
+
+  .user-name {
+    font-size: 13px;
+  }
+
+  .user-email,
+  .user-uid {
+    font-size: 11px;
+  }
+
+}
