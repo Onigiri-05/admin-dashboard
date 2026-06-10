@@ -199,3 +199,63 @@
     height: 100vh;
   }
 }
+
+@media (max-width: 768px) {
+
+  .dashboard-container {
+    display: block;
+  }
+
+  .sidebar {
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transform: translateX(0);
+  }
+
+  .sidebar.closed {
+    transform: translateX(-100%);
+    margin-left: 0;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+
+  .content-body {
+    padding: 4rem 1rem 1rem 1rem;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+
+    width: 42px;
+    height: 42px;
+
+    z-index: 1100;
+
+    background: #0F172A;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+  }
+
+  .sidebar-brand h2 {
+    font-size: 1.2rem;
+  }
+
+  .admin-email {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
